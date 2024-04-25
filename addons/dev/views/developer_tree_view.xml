@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="developers_management_tree_view_template" name="Developer Tree View">
+        <link rel="stylesheet" type="text/css" href="/dev/static/css/styles.css"/>
+        <div class="container">
+            <h1 class="page-title">All Developers</h1>
+            <div class="search">
+                <form action="/developer/search" method="get">
+                    <label for="name">Search by Name:</label>
+                    <input type="text" id="name" name="name"/>
+                    <label for="phone">Search by Phone:</label>
+                    <input type="text" id="phone" name="phone"/>
+                    <label for="type">Search by Type:</label>
+                    <select id="type" name="type">
+                        <option value="">All</option>
+                        <option value="front-end">Front-end</option>
+                        <option value="backend">Backend</option>
+                        <option value="fullstack">Fullstack</option>
+                        <option value="out-stuff">Out Stuff</option>
+                    </select>
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Developer's name</th>
+                        <th>Type of position</th>
+                        <th>Global Identification</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Date of birth</th>
+                        <th>Position</th>
+                        <th>Company</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="developers" t-as="developer">
+                        <tr>
+                            <td><t t-esc="developer.name"/></td>
+                            <td><t t-esc="developer.type"/></td>
+                            <td><t t-esc="developer.global_identification"/></td>
+                            <td><t t-esc="developer.phone"/></td>
+                            <td><t t-esc="developer.email"/></td>
+                            <td><t t-esc="developer.address"/></td>
+                            <td><t t-esc="developer.birthdate"/></td>
+                            <td><t t-esc="developer.position"/></td>
+                            <!-- <td><t t-esc="developer.company"/></td> -->
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+        </div>
+    </template>
+</odoo>
+
