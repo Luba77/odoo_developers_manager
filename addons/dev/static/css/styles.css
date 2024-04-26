@@ -1,7 +1,7 @@
 
 .container {
     width: 80%;
-    margin: 20px auto;
+    margin-left: 10px;
 }
 .table {
     width: 100%;
@@ -115,6 +115,30 @@ h1 {
 .form-1 .field {
     position: relative;
 }
+
+.developer-form input[type="text"],
+.developer-form input[type="email"],
+.developer-form input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.developer-form button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.developer-form button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
 
 
 

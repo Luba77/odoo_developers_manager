@@ -36,19 +36,23 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <t t-foreach="developers" t-as="developer">
-                        <tr>
-                            <td><t t-esc="developer.name"/></td>
-                            <td><t t-esc="developer.type"/></td>
-                            <td><t t-esc="developer.global_identification"/></td>
-                            <td><t t-esc="developer.phone"/></td>
-                            <td><t t-esc="developer.email"/></td>
-                            <td><t t-esc="developer.address"/></td>
-                            <td><t t-esc="developer.birthdate"/></td>
-                            <td><t t-esc="developer.position"/></td>
-                             <td><t t-esc="developer.company_id.name"/></td>
-                        </tr>
-                    </t>
+                 <t t-foreach="developers" t-as="developer">
+                    <tr>
+                        <form action="/developer/update" method="post" class="developer-form">
+                            <input type="hidden" name="developer_id" t-att-value="developer.id"/>
+                            <td><input type="text" name="name" t-att-value="developer.name"/></td>
+                            <td><input type="text" name="type" t-att-value="developer.type"/></td>
+                            <td><input type="text" name="global_identification" t-att-value="developer.global_identification"/></td>
+                            <td><input type="text" name="phone" t-att-value="developer.phone"/></td>
+                            <td><input type="email" name="email" t-att-value="developer.email"/></td>
+                            <td><input type="text" name="address" t-att-value="developer.address"/></td>
+                            <td><input type="date" name="birthdate" t-att-value="developer.birthdate"/></td>
+                            <td><input type="text" name="position" t-att-value="developer.position"/></td>
+                            <td><input type="text" name="company_id" t-att-value="developer.company_id.name"/></td>
+                            <td><button type="submit">Save</button></td>
+                        </form>
+                    </tr>
+                </t>
                 </tbody>
             </table>
         </div>

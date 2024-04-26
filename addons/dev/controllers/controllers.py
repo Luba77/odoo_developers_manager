@@ -88,6 +88,28 @@ class DeveloperController(http.Controller):
         })
         return http.request.redirect('/view_developers')
 
+    @http.route('/developer/update', type='http', csrf=False, auth='user', website=True)
+    def update_developer(self, developer_id=None, **post):
+        if developer_id:
+            developer = request.env['developers_management.developer'].sudo().browse(int(developer_id))
+            if developer:
+                company_name = post.get('company_id')
+                company = request.env['developers_management.company'].sudo().search([('name', '=', company_name)],
+                                                                                     limit=1)
+                if company:
+                    developer.write({
+                        'name': post.get('name'),
+                        'type': post.get('type'),
+                        'global_identification': post.get('global_identification'),
+                        'phone': post.get('phone'),
+                        'email': post.get('email'),
+                        'address': post.get('address'),
+                        'birthdate': post.get('birthdate'),
+                        'position': post.get('position'),
+                        'company_id': company.id,
+                    })
+        return request.redirect('/developers')
+
     @http.route('/companies/new', auth='public', csrf=False, website=True)
     def company_form(self):
         """
