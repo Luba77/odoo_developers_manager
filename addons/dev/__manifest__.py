@@ -13,7 +13,10 @@
     'license': 'AGPL-3',
     'data': [
         'views/developer_tree_view.xml',
-        'views/developer_form_view.xml',
+        'views/developers_template.xml',
+        'views/company_tree_view.xml',
+        'views/developer_form.xml',
+        'views/company_form.xml',
         'security/ir.model.access.csv'
     ],
     'installable': True,

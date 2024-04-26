@@ -11,9 +11,9 @@ class Developer(models.Model):
         ('backend', 'Backend'),
         ('fullstack', 'Fullstack'),
         ('out-stuff', 'Out Stuff'),
-    ], string='Type', required=True)
+    ], string='Type', required=False)
     global_identification = fields.Char(compute='_compute_global_identification', string='Global Identification', store=True)
-    phone = fields.Char(string='Phone')
+    phone = fields.Char(string='Phone', domain="[('type', '!=', 'out-stuff')]")
     email = fields.Char(string='Email')
     address = fields.Text(string='Address')
     birthdate = fields.Date(string='Birthdate')

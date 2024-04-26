@@ -46,7 +46,7 @@
                             <td><t t-esc="developer.address"/></td>
                             <td><t t-esc="developer.birthdate"/></td>
                             <td><t t-esc="developer.position"/></td>
-                            <!-- <td><t t-esc="developer.company"/></td> -->
+                             <td><t t-esc="developer.company_id.name"/></td>
                         </tr>
                     </t>
                 </tbody>

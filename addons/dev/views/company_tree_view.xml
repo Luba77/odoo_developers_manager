@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="developers_management_companies_tree_view_template" name="Company Tree View">
+        <link rel="stylesheet" type="text/css" href="/dev/static/css/styles.css"/>
+        <div class="container">
+            <h1 class="page-title">All companies</h1>
+            <div class="search">
+                <form action="/company/search" method="get">
+                    <label for="name">Search by Name:</label>
+                    <input type="text" id="name" name="name"/>
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Company's name</th>
+                        <th>Address</th>
+                        <th>Developers</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="companies" t-as="company">
+                        <tr>
+                            <td><t t-esc="company.name"/></td>
+                            <td><t t-esc="company.address"/></td>
+                            <td>
+                                <t t-foreach="company.developers" t-as="developer">
+                                    <t t-esc="developer.name"/>
+                                    <br/>
+                                </t>
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+        </div>
+    </template>
+</odoo>
+
